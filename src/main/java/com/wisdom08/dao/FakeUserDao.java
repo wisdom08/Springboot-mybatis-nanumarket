@@ -16,14 +16,45 @@ public class FakeUserDao implements IUserDao {
         fakeUsers.add(new User(100L, "a", "a@naver.com", "1234"));
     }
 
+
     @Override
     public User login(String id, String password) {
-        for (User user : fakeUsers) {
+        for(User user: fakeUsers) {
             if (user.getId().equals(id) && user.getPassword().equals(password)) {
                 return user;
             }
         }
-            return null;
+        return null;
+    }
+
+    @Override
+    public User findByEmail(String value) {
+        for (User user : fakeUsers) {
+            if (user.getEmail().equals(value)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public User join(String id, String email, String pw) {
+        for (User user : fakeUsers) {
+            if (user.getId().equals(id) && user.getPassword().equals(pw)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public User findById(String id) {
+        for (User user : fakeUsers) {
+            if (user.getId().equals(id)) {
+                return user;
+            }
+        }
+        return null;
     }
 
 

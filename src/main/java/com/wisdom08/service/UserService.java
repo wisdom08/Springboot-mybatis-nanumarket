@@ -19,4 +19,21 @@ public class UserService {
         return user;
     }
 
+    public User join(String id, String email, String pw) {
+        User user = userDao.join(id, email, pw);
+        if (user != null) {
+
+        }
+        return user;
+    }
+
+    public User findUserByEmail(String value) {
+        return userDao.findByEmail(value);
+    }
+
+    public User FindUserById(String id) {
+        return userDao.findById(id);
+    }
+
+
 }

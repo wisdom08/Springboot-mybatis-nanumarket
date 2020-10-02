@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 가입</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/join.css">
+    <script src="/js/join.js"></script>
+</head>
+<body>
+<div class="container-fluid" id="login-wrapper">
+    <div class="row">
+        <div class="col-12"><h3>JOIN</h3></div>
+
+        <div class="col-12">
+            <input type="text" class="form-control" id="id" value="a" placeholder="id">
+            <div class="col-12 alert-id">
+                <div class="alert alert-danger" role="alert">
+                    이미 가입된 아이디입니다. 다른 아이디를 입력해주세요.
+                </div>
+            </div>
+            <input type="text" class="form-control" id="email" value="a@naver.com" placeholder="email">
+            <div class="col-12 alert-email">
+                <div class="alert alert-danger" role="alert">
+                    이미 가입된 이메일입니다. 다른 이메일주소를 입력해주세요.
+                </div>
+            </div>
+            <input type="password" class="form-control" id="pw" value="1234">
+            <input type="password" class="form-control" id="pw2" value="">
+            <button class="btn-join">JOIN</button>
+        </div>
+        <div class="col-12">
+        </div>
+    </div>
+</div>
+</body>
+</html>

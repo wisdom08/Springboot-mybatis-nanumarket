@@ -33,4 +33,31 @@ public class UserController {
         }
 
     }
+
+    @PostMapping("/join")
+    public Object tryJoin(@RequestParam String id, @RequestParam String email, @RequestParam String pw) {
+        System.out.println("id = " + id);
+        System.out.println("pw = " + pw);
+        System.out.println("email = " + email);
+
+        User user = userService.join(id, email, pw);
+        boolean success = user != null;
+        return TypeMap.success("id", id, "email", email, "pw", pw);
+
+    }
+
+    @PostMapping("/join/check/email")
+    public Object checkDup(@RequestParam String value) {
+        User user = userService.findUserByEmail(value);
+        boolean dup = user != null;
+        return TypeMap.success("dup", dup);
+    }
+
+
+    @PostMapping("/join/check/id")
+    public Object checkId(@RequestParam String id) {
+        User user = userService.FindUserById(id);
+        boolean dup = user != null;
+        return TypeMap.success("dup", dup);
+    }
 }
