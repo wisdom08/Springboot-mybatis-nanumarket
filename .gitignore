@@ -3,6 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+*.properties
 
 ### STS ###
 .apt_generated
@@ -31,3 +32,9 @@ build/
 
 ### VS Code ###
 .vscode/
+src/main/java/com/wisdom08/TypeMap.java
+src/main/java/com/wisdom08/controller/
+src/main/java/com/wisdom08/dao/
+src/main/java/com/wisdom08/dto/
+src/main/java/com/wisdom08/service/
+src/main/resources/
