@@ -22,6 +22,13 @@ public class User {
         this.createdDate = LocalDateTime.now();
     }
 
+    public User(String id, String email, String password) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.createdDate = LocalDateTime.now();
+    }
+
     public Long getSeq() {
         return seq;
     }
