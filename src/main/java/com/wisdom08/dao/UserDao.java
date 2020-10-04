@@ -16,7 +16,7 @@ public class UserDao implements IUserDao {
     @Override
     public User login(String id, String password) {
 
-        TypeMap param = TypeMap.with(false, "id", id.trim(), "password", password);
+        TypeMap param = TypeMap.with("id", id.trim(), "password", password);
 
         //UserMapper.xml 파일에서 내가 실행할 sql 지정하기
         User user = session.selectOne("UserMapper.login", param);

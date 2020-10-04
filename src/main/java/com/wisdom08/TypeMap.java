@@ -14,6 +14,14 @@ public class TypeMap extends HashMap<String, Object> {
     }
 
     public static TypeMap with(boolean result, Object... args) {
+
+        TypeMap map = TypeMap.with(args);
+
+        map.put("success", result);
+        return map;
+    }
+
+    public static TypeMap with(Object... args) {
         if (args.length % 2 == 1) {
             throw new RuntimeException("짝수개가 아님");
         }
@@ -25,7 +33,6 @@ public class TypeMap extends HashMap<String, Object> {
             Object value = args[i + 1];
             map.put(key, value);
         }
-        map.put("success", result);
         return map;
     }
 }
