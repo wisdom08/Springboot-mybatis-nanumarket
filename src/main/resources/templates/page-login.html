@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <th:block th:include="/common/meta.html"></th:block>
+    <th:block th:include="/common/js.html"/>
+    <th:block th:include="/common/css.html"/>
+    <title>[로그인]</title>
+    <script src="/js/login.js"></script>
+</head>
+<body>
+<th:block th:include="/common/navbar.html"/>
+<div class="container-fluid mgt-60px" id="login-wrapper">
+    <div class="row">
+        <div class="col-12"><h3>LOGIN</h3></div>
+        <div class="col-12">
+            <input type="text" class="form-control" id="id" value="a" placeholder="id 또는 email">
+            <input type="password" class="form-control" id="password" value="1234">
+            <button class="btn-login">LOGIN</button>
+        </div>
+        <div class="col-12">
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <th:block th:include="/common/meta.html"></th:block>
+    <th:block th:include="/common/js.html"/>
+    <th:block th:include="/common/css.html"/>
+    <title>[거래글 작성]</title>
+    <script type="text/javascript" src="/js/market/write.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dfe329bce4d3227bf8e0766d9b72aaa6&libraries=services,clusterer,drawing"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dfe329bce4d3227bf8e0766d9b72aaa6"></script>
+</head>
+<body>
+<th:block th:include="/common/navbar.html"/>
+<div class="container-fluid mgt-60px">
+    <div class="row">
+        <div class="col-12">
+        <input type="text" class="form-control" value="제목">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button data-cmd="show-map">지도보기</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+        <textarea rows="10" class="form-control">내용</textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="upfiles">
+                <input type="file">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12"><input type="button" class="btn btn-primary form-control" value="올리기" data-cmd="submit"></div>
+    </div>
+</div>
+
+<div id="result">
+    <div class="row">
+        <div class="col-12">
+
+        </div>
+    </div>
+</div>
+
+
+<div class="map-wrapper" style="display: none;">
+    <div class="row">
+        <div class="col-12">
+            <div id="map" style="width:100%; height: 400px;"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
