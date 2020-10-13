@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //@Repository
-public class FakeUserDao implements IUserDao {
+public class FakeUserDao  {
 
     private List<User> fakeUsers;
 
@@ -17,7 +17,6 @@ public class FakeUserDao implements IUserDao {
     }
 
 
-    @Override
     public User login(String id, String password) {
         for(User user: fakeUsers) {
             if (user.getId().equals(id) && user.getPassword().equals(password)) {
@@ -27,7 +26,6 @@ public class FakeUserDao implements IUserDao {
         return null;
     }
 
-    @Override
     public User findByEmail(String value) {
         for (User user : fakeUsers) {
             if (user.getEmail().equals(value)) {
@@ -37,7 +35,6 @@ public class FakeUserDao implements IUserDao {
         return null;
     }
 
-    @Override
     public User join(String id, String email, String pw) {
         for (User user : fakeUsers) {
             if (user.getId().equals(id) && user.getPassword().equals(pw)) {
@@ -47,7 +44,6 @@ public class FakeUserDao implements IUserDao {
         return null;
     }
 
-    @Override
     public User findById(String id) {
         for (User user : fakeUsers) {
             if (user.getId().equals(id)) {

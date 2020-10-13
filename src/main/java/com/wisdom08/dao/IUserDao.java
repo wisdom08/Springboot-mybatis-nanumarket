@@ -7,6 +7,14 @@ public interface IUserDao {
 
     User findByEmail(String value);
 
-    User join(String id, String email, String pw);
     User findById(String id);
+
+    /**
+     * 회원 가입
+     * @param user
+     * @return
+     */
+    User join(User user);
+
+    User findBySeq(Long sellerSeq);
 }

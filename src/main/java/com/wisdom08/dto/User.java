@@ -14,6 +14,16 @@ public class User {
     public User() {
     }
 
+    //insert 용
+    public User(String id, String email, String password) {
+       /* this.id = id;
+        this.email = email;
+        this.password = password;*/
+
+        this(null, id, email, password);
+    }
+
+    //select 용
     public User(Long seq, String id, String email, String password) {
         this.seq = seq;
         this.id = id;
@@ -22,12 +32,8 @@ public class User {
         this.createdDate = LocalDateTime.now();
     }
 
-    public User(String id, String email, String password) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.createdDate = LocalDateTime.now();
-    }
+
+
 
     public Long getSeq() {
         return seq;
@@ -67,5 +73,16 @@ public class User {
 
     public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "seq=" + seq +
+                ", id='" + id + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", createdDate=" + createdDate +
+                '}';
     }
 }

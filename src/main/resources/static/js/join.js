@@ -1,8 +1,19 @@
 $(document).ready(() => {
 
-    var message = {
+
+    let msg = {
+        SHORT_PW: '비번이 짧아요',
+        DUP_ID: '존재하는 아이디',
+        DUP_EMAIL: '존재하는 이메일',
         LOGIN_FAILED: "아이디나 비밀번호를 확인해주세요"
     }
+
+    function error(code) { // 'SHORT_PW'
+        let m = msg[code]   //msg['SHORT_PW'] msg.get(code)
+        return m || `오류발생(${code})`
+    }
+
+
 
     function checkDup(value) {
         $.ajax({
@@ -15,7 +26,11 @@ $(document).ready(() => {
                 if (res.dup) {
                     $('.alert-email').show()
                 }
-            }
+            },
+            // error(e) {
+            //     //400 , 403 ...
+            //     console.log(e)
+            // }
         })
     }
 
@@ -34,24 +49,23 @@ $(document).ready(() => {
         })
     }
 
-    function tryJoin(id, email, pw){
+    function tryJoin(id, email, pw, callback){
         $.ajax({
-            url: '/join',
+            url: '/tryJoin',
             method: 'POST',
             data: {
                 id, email, pw
             },
-            success: function (res) {
-                if (res.success) {
-                    alert("join success")
-                    location.href = "/"
-                } else {
-                    let err = res.cause
-                    let msg = message[err]
-                    alert(msg)
-                }
-            }
+            success(res){
+                callback(res)
+            },
+            error(e) {
+                //400 , 403 ...
+                console.log( e )
+                let msg = error(e.responseJSON.cause)
+                alert(msg)
 
+            }
         })
     }
 
@@ -63,7 +77,7 @@ $(document).ready(() => {
         })
 
         .on('input', (e) => {
-            console.log('[input]', "이메일 쓰는 중")
+            console.log("[input], 이메일 쓰는 중")
             $('.alert-email').hide()
         })
 
@@ -74,7 +88,7 @@ $(document).ready(() => {
         })
 
         .on('input', (e) => {
-            console.log('[input]', "아이디 쓰는 중")
+            console.log("아이디 쓰는 중")
             $('.alert-id').hide()
         })
 
@@ -86,7 +100,14 @@ $(document).ready(() => {
             let id = $('#id').val()
             let email = $('#email').val()
             let pw = $('#pw').val()
-            tryJoin(id, email, pw)
+            tryJoin(id, email, pw, (res) => {
+                if (res.success) {
+                    alert("성공")
+                    location.href ="/"
+                } else {
+                    let msg = error(res.cause)
+                }
+            })
         })
 
     $('#pw2')
