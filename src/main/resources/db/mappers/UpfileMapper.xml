@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UpfileMapper">
+
+    <insert id="insertFile" parameterType="com.wisdom08.dto.storage.IUpfile">
+        INSERT INTO upfile (
+            origin_fname,
+            gen_fname,
+            file_len,
+            content_type,
+            product
+        ) VALUES (
+            #{originFileName},
+            #{generatedFileName},
+            #{fileSize},
+            #{contentType},
+            #{product.seq} /*file.getProduct().getSeq()*/
+        )
+    </insert>
+
+</mapper>
