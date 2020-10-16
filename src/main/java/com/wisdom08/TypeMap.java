@@ -9,7 +9,7 @@ public class TypeMap extends HashMap<String, Object> {
         return with(true, args);
     }
 
-    public static Object fail(Object... args) {
+    public static TypeMap fail(Object... args) {
         return with(false, args);
     }
 

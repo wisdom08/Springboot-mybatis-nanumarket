@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    param
+    {id: 'aaaa',
+    password: 'asdf'}
+-->
+
+<!--
+#{id} => param.get("id") 값을 꺼내와서 마이바티스가 바인딩 시켜준다.
+-->
+
+<mapper namespace="UserMapper">
+
+    <sql id="user_full_column">
+            seq,
+            id,
+            email,
+            password,
+            created_date AS createdDate
+    </sql>
+
+    <select id="login" parameterType="map" resultType="com.wisdom08.dto.User">
+        SELECT
+            <include refid="user_full_column"></include>
+        FROM
+            user
+        WHERE
+            id = #{id}
+            AND
+            password = #{password}
+    </select>
+
+
+    <select id="findById" parameterType="String" resultType="com.wisdom08.dto.User">
+        SELECT
+            id
+        FROM
+            user
+        WHERE
+            id = #{id}
+    </select>
+
+
+
+    <insert id="join" parameterType="com.wisdom08.dto.User">
+       INSERT INTO user
+            (id,
+             email,
+             `password`)
+       VALUES
+            (#{id},
+             #{email},
+             #{password});
+    </insert>
+
+    <select id="findBySeq" parameterType="long" resultType="com.wisdom08.dto.User">
+        SELECT
+            <include refid="user_full_column"></include>
+        FROM USER
+        WHERE seq = #{id}
+    </select>
+</mapper>
